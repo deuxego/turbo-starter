@@ -1,0 +1,61 @@
+{
+  "name": "monorepo-starter",
+  "private": true,
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "start": "turbo run start",
+    "lint": "turbo run lint",
+    "lint:fix": "turbo run lint:fix",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "test:watch": "turbo run test:watch",
+    "test:coverage": "turbo run test:coverage",
+    "test:e2e": "turbo run test:e2e",
+    "test:integration": "turbo run test:integration",
+    "clean": "turbo run clean",
+    "release": "changeset publish",
+    "version-packages": "changeset version",
+    "changeset": "changeset",
+    "changeset:check": "changeset status",
+    "ci": "turbo run typecheck lint test build",
+    "ci:full": "turbo run typecheck lint test build && pnpm changeset:check",
+    "ci:e2e": "turbo run typecheck lint test build test:e2e",
+    "commitlint": "commitlint --edit",
+    "commitlint:check": "commitlint --from HEAD~1 --to HEAD --verbose",
+    "commitlint:all": "commitlint --from HEAD~10 --to HEAD --verbose",
+    "pre-commit": "lint-staged",
+    "prepare": "husky",
+    "audit": "pnpm audit --audit-level moderate",
+    "audit:fix": "pnpm audit --fix",
+    "outdated": "pnpm outdated",
+    "update": "pnpm update --interactive",
+    "hooks:install": "husky install",
+    "hooks:uninstall": "husky uninstall",
+    "check": "pnpm run typecheck && pnpm run lint && pnpm run test",
+    "check:fix": "pnpm run lint:fix && pnpm run typecheck && pnpm run test",
+    "validate": "pnpm run check && pnpm run commitlint:check",
+    "validate:fix": "pnpm run check:fix && pnpm run commitlint:check",
+    "gen": "turbo gen"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.29.8",
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@turbo/gen": "^2.6.3",
+    "eslint": "catalog:",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
+    "turbo": "^2.7.5"
+  },
+  "lint-staged": {
+    "*.{js,mjs,cjs,ts,tsx,json}": "eslint --fix"
+  },
+  "packageManager": "pnpm@10.25.0",
+  "engines": {
+    "node": ">=20.12.0",
+    "pnpm": ">=10.16.1"
+  }
+}

@@ -1,0 +1,36 @@
+# PNPM Configuration for Production-Grade Monorepo
+# https://pnpm.io/npmrc
+
+# Store configuration
+store-dir=~/.pnpm-store
+cache-dir=~/.pnpm-cache
+
+# Security settings
+audit-level=moderate
+fund=false
+update-notifier=false
+
+# Performance optimizations
+strict-peer-dependencies=false
+
+# Registry configuration
+registry=https://registry.npmjs.org/
+auto-install-peers=true
+
+# Workspace configuration
+link-workspace-packages=true
+shared-workspace-lockfile=true
+
+# Logging
+loglevel=warn
+reporter=append-only
+
+# Security
+ignore-scripts=false
+unsafe-perm=false
+
+# Network
+fetch-retries=3
+fetch-retry-factor=2
+fetch-retry-mintimeout=10000
+fetch-retry-maxtimeout=60000

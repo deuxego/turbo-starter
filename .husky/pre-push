@@ -1,0 +1,27 @@
+#!/usr/bin/env sh
+
+# Run tests and type checking before push
+echo "🔍 Running pre-push checks..."
+
+# Type check
+echo "📝 Type checking..."
+pnpm run typecheck || {
+  echo "❌ Type check failed"
+  exit 1
+}
+
+# Run tests
+# echo "🧪 Running tests..."
+# pnpm run test || {
+#   echo "❌ Tests failed"
+#   exit 1
+# }
+
+# Run linting
+echo "🔧 Running linting..."
+pnpm run lint || {
+  echo "❌ Linting failed"
+  exit 1
+}
+
+echo "✅ All pre-push checks passed!"

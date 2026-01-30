@@ -1,0 +1,8 @@
+import { describe, expect, it } from 'vitest'
+import { hello } from '../src/index'
+
+describe('{{ packageName }}', () => {
+  it('should greet with hello', () => {
+    expect(hello('World')).toBe('Hello, World!')
+  })
+})

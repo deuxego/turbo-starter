@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+# Show commit summary
+echo "📝 Commit created successfully!"
+echo "💡 Run 'git push' to push your changes to the remote repository"
+echo "🔍 Run 'git log --oneline -5' to see recent commits"

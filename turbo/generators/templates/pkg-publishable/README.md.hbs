@@ -1,0 +1,69 @@
+# @{{ scope }}/{{ packageName }}
+
+{{ description }}
+
+## Internal Usage (Development)
+
+When used internally within the monorepo, this package exposes code directly from the `src/` directory:
+
+```typescript
+import { hello } from '@{{ scope }}/{{ packageName }}'
+
+console.log(hello('World')) // "Hello, World!"
+```
+
+## Published Usage
+
+When published to npm, this package exposes compiled code from the `dist/` directory with proper dual-format exports (ESM/CommonJS).
+
+## Installation (External)
+
+```bash
+npm install @{{ scope }}/{{ packageName }}
+# or
+pnpm add @{{ scope }}/{{ packageName }}
+# or
+yarn add @{{ scope }}/{{ packageName }}
+```
+
+## Development
+
+```bash
+# Install dependencies
+pnpm install
+
+# Build the package
+pnpm build
+
+# Run tests
+pnpm test
+
+# Run tests with coverage
+pnpm test:coverage
+
+# Lint code
+pnpm lint
+
+# Fix linting issues
+pnpm lint:fix
+
+# Type check
+pnpm typecheck
+```
+
+## Publishing
+
+This package is configured for automatic publishing. The build process will:
+
+1. Compile TypeScript to both ESM and CommonJS formats
+2. Generate type definitions
+3. Create source maps
+4. Output to the `dist/` directory
+
+To publish:
+
+```bash
+pnpm publish
+```
+
+The `prepublishOnly` script will automatically build the package before publishing.

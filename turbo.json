@@ -1,0 +1,80 @@
+{
+  "$schema": "https://turborepo.com/schema.json",
+  "ui": "tui",
+  "globalEnv": ["*"],
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "inputs": ["$TURBO_DEFAULT$", ".env*"],
+      "outputs": ["dist/**", "build/**", ".next/**", "!.next/cache/**"],
+      "cache": true
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true,
+      "env": ["*"]
+    },
+    "start": {
+      "cache": false,
+      "persistent": true,
+      "env": ["*"]
+    },
+    "lint": {
+      "dependsOn": ["^lint"],
+      "inputs": ["$TURBO_DEFAULT$", ".eslintrc*", "eslint.config.*"],
+      "outputs": []
+    },
+    "lint:fix": {
+      "dependsOn": ["^lint:fix"],
+      "inputs": ["$TURBO_DEFAULT$", ".eslintrc*", "eslint.config.*"],
+      "outputs": []
+    },
+    "typecheck": {
+      "dependsOn": ["^typecheck"],
+      "inputs": ["$TURBO_DEFAULT$", "tsconfig.json", "tsconfig.base.json"],
+      "outputs": []
+    },
+    "test": {
+      "inputs": ["$TURBO_DEFAULT$", "vitest.config.*", "tsconfig.json"],
+      "outputs": []
+    },
+    "test:watch": {
+      "cache": false,
+      "persistent": true,
+      "inputs": ["$TURBO_DEFAULT$", "vitest.config.*", "tsconfig.json"]
+    },
+    "test:coverage": {
+      "inputs": ["$TURBO_DEFAULT$", "vitest.config.*", "tsconfig.json"],
+      "outputs": ["coverage/**"]
+    },
+    "test:e2e": {
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "test/e2e.config.*",
+        "test/**/*.test.ts",
+        "test/**/*.test.js",
+        "tsconfig.json"
+      ],
+      "outputs": [],
+      "cache": false,
+      "env": ["*"]
+    },
+    "test:integration": {
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "test/integration.config.*",
+        "test/**/*.integration.test.ts",
+        "test/**/*.integration.test.js",
+        "tsconfig.json"
+      ],
+      "outputs": [],
+      "cache": false,
+      "env": ["*"]
+    },
+    "clean": {
+      "cache": false,
+      "inputs": [],
+      "outputs": ["dist/**", "build/**", "coverage/**"]
+    }
+  }
+}
