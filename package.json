@@ -15,7 +15,7 @@
     "test:integration": "turbo run test:integration",
     "clean": "turbo run clean",
     "release": "changeset publish",
-    "version-packages": "changeset version",
+    "version": "changeset version",
     "changeset": "changeset",
     "changeset:check": "changeset status",
     "ci": "turbo run typecheck lint test build",
